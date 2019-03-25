@@ -79,4 +79,6 @@ Activer Chrome console F12
 
 Resolution
 - activate firebase realtime database https://console.firebase.google.com/project/angular-firebase-270572/database/angular-firebase-270572/data
-- activate firebase storage
+- vérifier l'onglet firebase storage: l'URL du dossier storage doit être visible
+gs://<projet>.appspot.com/
+
