@@ -18,31 +18,31 @@ ng g s services/auth
 ng g s services/books
 ng g s services/auth-guard
 
-Créer projet firebase https://console.firebase.google.com/?pli=1
+Creer projet firebase https://console.firebase.google.com/?pli=1
 
 https://console.firebase.google.com/project/angular-firebase-270572/database/angular-firebase-270572/data
 https://angular-firebase-270572.firebaseio.com/
 Nom du projet : angular-firebase
 ID du projet  : angular-firebase-270572
-Clé API Web : AIzaSyAC1yHbMX62L6yQOnmCk6QVOGUcU1jWxJk
+Cle API Web : AIzaSyAC1yHbMX62L6yQOnmCk6QVOGUcU1jWxJk
 Nom public : project-174863311804
 
 Ajouter Firebase a votre app web:
 https://console.firebase.google.com/project/angular-firebase-270572/overview
-Choisissez "Ajouter Firebase à votre application Web" et copiez-collez la configuration dans le 
-constructeur de votre  AppComponent  (en ajoutant  import * as firebase from 'firebase'; 
-en haut du fichier, mettant à disposition la méthode  initializeApp() ) : 
+Choisissez "Ajouter Firebase a votre application Web" et copiez-collez la configuration dans le
+constructeur de votre  AppComponent  (en ajoutant  import * as firebase from 'firebase';
+en haut du fichier, mettant a disposition la methode  initializeApp() ) :
 
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyAC1yHbMX62L6yQOnmCk6QVOGUcU1jWxJk",
-    authDomain: "angular-firebase-270572.firebaseapp.com",
-    databaseURL: "https://angular-firebase-270572.firebaseio.com",
-    projectId: "angular-firebase-270572",
-    storageBucket: "angular-firebase-270572.appspot.com",
-    messagingSenderId: "174863311804"
+    apiKey: 'AIzaSyAC1yHbMX62L6yQOnmCk6QVOGUcU1jWxJk',
+    authDomain: 'angular-firebase-270572.firebaseapp.com',
+    databaseURL: 'https://angular-firebase-270572.firebaseio.com',
+    projectId: 'angular-firebase-270572',
+    storageBucket: 'angular-firebase-270572.appspot.com',
+    messagingSenderId: '174863311804'
   };
   firebase.initializeApp(config);
 </script>
@@ -50,6 +50,22 @@ en haut du fichier, mettant à disposition la méthode  initializeApp() ) :
 Activer authentification par email et mot de passe
 https://console.firebase.google.com/project/angular-firebase-270572/authentication/providers
 
-DONE until Ainsi, vous avez les trois fonctions dont vous avez besoin pour intégrer l'authentification dans l'application !
-TO DO:
-Vous pouvez ainsi créer  SignupComponent  et  ........
+ng build --prod
+Vous utilisez le CLI pour gÃ©nÃ©rer le package final de production de votre application dans le dossier dist
+
+https://openclassrooms.com/forum/sujet/cours-angular-firebase-probleme-sur-lupload
+
+Dans books.service.ts > uploadFile > remplacer:
+          () => {
+            resolve(upload.snapshot.ref.getDownloadURL());
+          }
+par:
+          () => {
+            upload.snapshot.ref.getDownloadURL().then(
+              (downloadUrl) => {
+                console.log('Upload successful! (' + downloadUrl + ')');
+                resolve(downloadUrl);
+              }
+            );
+          }
+Activer Chrome console F12
