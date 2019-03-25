@@ -69,3 +69,14 @@ par:
             );
           }
 Activer Chrome console F12
+
+{
+  "error": {
+    "code": 400,
+    "message": "Permission denied. Could not access bucket angular-firebase-270572.appspot.com. Please enable Firebase Storage for your bucket by visiting the Storage tab in the Firebase Console and ensure that you have sufficient permission to properly provision resources."
+  }
+}
+
+Resolution
+- activate firebase realtime database https://console.firebase.google.com/project/angular-firebase-270572/database/angular-firebase-270572/data
+- activate firebase storage
