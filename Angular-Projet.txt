@@ -1,0 +1,55 @@
+https://openclassrooms.com/fr/courses/4668271-developpez-des-applications-web-avec-angular
+
+ng new mon-projet-angular --style=scss --skip-tests=true
+npm install bootstrap@3.3.7 --save
+angular.json
+  "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css","src/styles.scss"
+            ]
+ng serve
+
+ng g c auth/signup
+ng g c auth/signin
+ng g c book-list
+ng g c book-list/single-book
+ng g c book-list/book-form
+ng g c header
+ng g s services/auth
+ng g s services/books
+ng g s services/auth-guard
+
+Créer projet firebase https://console.firebase.google.com/?pli=1
+
+https://console.firebase.google.com/project/angular-firebase-270572/database/angular-firebase-270572/data
+https://angular-firebase-270572.firebaseio.com/
+Nom du projet : angular-firebase
+ID du projet  : angular-firebase-270572
+Clé API Web : AIzaSyAC1yHbMX62L6yQOnmCk6QVOGUcU1jWxJk
+Nom public : project-174863311804
+
+Ajouter Firebase a votre app web:
+https://console.firebase.google.com/project/angular-firebase-270572/overview
+Choisissez "Ajouter Firebase à votre application Web" et copiez-collez la configuration dans le 
+constructeur de votre  AppComponent  (en ajoutant  import * as firebase from 'firebase'; 
+en haut du fichier, mettant à disposition la méthode  initializeApp() ) : 
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAC1yHbMX62L6yQOnmCk6QVOGUcU1jWxJk",
+    authDomain: "angular-firebase-270572.firebaseapp.com",
+    databaseURL: "https://angular-firebase-270572.firebaseio.com",
+    projectId: "angular-firebase-270572",
+    storageBucket: "angular-firebase-270572.appspot.com",
+    messagingSenderId: "174863311804"
+  };
+  firebase.initializeApp(config);
+</script>
+
+Activer authentification par email et mot de passe
+https://console.firebase.google.com/project/angular-firebase-270572/authentication/providers
+
+DONE until Ainsi, vous avez les trois fonctions dont vous avez besoin pour intégrer l'authentification dans l'application !
+TO DO:
+Vous pouvez ainsi créer  SignupComponent  et  ........
